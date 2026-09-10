@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import AndroidFrame from './components/AndroidFrame';
 import HomeScreen from './screens/HomeScreen';
 import FatigueAnalysisScreen from './screens/FatigueAnalysisScreen';
 import SNCurveScreen from './screens/SNCurveScreen';
@@ -7,6 +6,7 @@ import DetailCategoriesScreen from './screens/DetailCategoriesScreen';
 import DamageAccumulationScreen from './screens/DamageAccumulationScreen';
 import QuickCheckScreen from './screens/QuickCheckScreen';
 import ReferenceScreen from './screens/ReferenceScreen';
+import AppBar from './components/AppBar';
 
 type Screen = 'home' | 'fatigue-analysis' | 'sn-curve' | 'detail-categories' | 'damage-accumulation' | 'quick-check' | 'reference';
 
@@ -43,8 +43,16 @@ export default function App() {
   };
 
   return (
-    <AndroidFrame>
-      {renderScreen()}
-    </AndroidFrame>
+    <div className="bg-gray-50 min-h-screen">
+      <div className="border-b border-gray-200 bg-white shadow-sm">
+        <AppBar
+          title="IRS Steel Bridge Code"
+          subtitle="Fatigue Analysis Calculator"
+        />
+      </div>
+      <div className="p-4 pt-6">
+        {renderScreen()}
+      </div>
+    </div>
   );
 }
